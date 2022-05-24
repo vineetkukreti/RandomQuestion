@@ -1,0 +1,55 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+int getMeLength(char str[])
+{
+    int i = 0,count = 0;
+    while(str[i]!='\0')
+    {
+        i++;
+        count++;
+    }
+    return count;
+}
+int main()
+{
+    char s[100];
+    cin.getline(s,100);
+   // cout<<s<<endl;
+    int n = getMeLength(s);
+    vector<char> t;
+    vector<char> a;
+    int m = 0;
+    for(int i = 0;i<n;i++)
+    {
+        if(s[i]!=' ')
+        {
+             
+            t.push_back(s[i]);
+            //cout<<s[i];
+        }
+        else
+        {
+            reverse(t.begin(),t.end());
+            int f = t.size();
+            for(int i = 0;i<f;i++)
+            {
+                a.push_back(t[i]);
+            }
+           a.push_back(' ');
+            t.clear();
+        }
+    }
+     reverse(t.begin(),t.end());
+            int f = t.size();
+            for(int i = 0;i<f;i++)
+            {
+                a.push_back(t[i]);
+            }
+     reverse(a.begin(),a.end());
+     for(int i = 0;i<n;i++)
+     {
+         cout<<a[i];
+     }
+    return 0;
+}
